@@ -49,5 +49,4 @@ private: \
 
 ```c++
 1. QT_WARNING_PUSH 
-
 ```

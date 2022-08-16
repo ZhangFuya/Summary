@@ -5,7 +5,7 @@ imread功能是加载图像文件成为一个Mat对象，
 第二个参数可以使用宏值所表示原值：-1（IMREAD_UNCHANGED）、0（IMREAD_GRAYSCALE）、1（IMREAD_COLOR）         
 注意一点：OpenCV支持JPG、PNG、TIFF等常见格式图像文件加载         
 
-## 显示图像 cv::namedWindow 与 cv::imshow         
+## 显示图像 cv::namedWindow 与 cv::imshow          
 - namedWindow功能是创建一个OpenCV窗口，它是由OpenCV自动创建与释放，无需手动销毁         
 - namedWindow("Window Title", WINDOW_AUTOSIZE)         
 - WINDOW_AUTOSIZE 会自动根据图像大小，显示窗口大小。不能人为改变窗口的大小         
@@ -25,4 +25,6 @@ cvtColor的功能是把图像从一个色彩空间转换到另一个色彩空间
 - 只有8位、16位的PNG、JPG、Tiff文件格式而且是单通道或者三通道的BGR的图像才可以通过这种方式保存         
 - 保存PNG格式的时候可以保存透明通道的图片         
 - 可以指定压缩参数         
+
+[源代码--图像的显示与保存](../assets/Source/OpenCV/01-open-image.cpp)           
 

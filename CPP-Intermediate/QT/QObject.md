@@ -52,5 +52,12 @@ private: \
 
 
 ```c++
-1. QT_WARNING_PUSH 
+1. QT_WARNING_PUSH   告诉编译器不要报 4793 的警告
+2. staticMetaObject  静态元对象存储的是类中所有的数据。
+3. metaObject        staticMetaObject的引用
+4. qt_metacast       将子类转为Qobject对象
+5. qt_metacall       虚函数化槽函数，以及对类的属性进行读取
+6. QT_TR_FUNCTIONS   国际化处理
+7. qt_static_metacall 调用槽函数
+8. 重点：Qt的moc编译器会自动生成信号的实现(在moc_xxx.cpp文件中)，因此不需要手动实现信号的定义
 ```

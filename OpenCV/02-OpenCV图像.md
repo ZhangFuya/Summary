@@ -9,7 +9,7 @@ imread功能是加载图像文件成为一个Mat对象，
 - namedWindow功能是创建一个OpenCV窗口，它是由OpenCV自动创建与释放，无需手动销毁         
 - namedWindow("Window Title", WINDOW_AUTOSIZE)         
 - WINDOW_AUTOSIZE 会自动根据图像大小，显示窗口大小。不能人为改变窗口的大小         
-- WINDOW_NORMAL，根Qt集成的时候会使用，允许修改窗口大小         
+- WINDOW_NORMAL，允许修改窗口大小         
 - imshow( )根据窗口名称显示图像到指定的窗口上去，第一个参数是窗口名称，第二个参数是Mat对象         
 - **当namedWindow( )与imshow( )所表示的窗口名相同时只会创建一个窗口，若不同则会创建两个。此外可以定义多个namedWindow与imshow**     
 - 一个视频是由很多的帧组成的，将所有的帧放在一个窗口中进行显示，就形成了视频播放。        

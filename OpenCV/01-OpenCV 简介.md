@@ -8,13 +8,13 @@ OpenCV是计算机视觉开源库，主要算法涉及图像处理和机器学�
 OpenCV常用来做 目标识别(人物、文字)；自动驾驶；医学图像分析；视频内容理解                      
 
 #### OpenCv与图形学的关系
-![[01-OpenCV与图形学的关系.png]]
+![OpenCV与图像学的关系](./assets/pic/01-OpenCV%E4%B8%8E%E5%9B%BE%E5%BD%A2%E5%AD%A6%E7%9A%84%E5%85%B3%E7%B3%BB.png)           
 如图：从左到右是计算机图形学，从右到左是计算机视觉。
 此外：IMAGE到IMAGE，(如超分，增强图片清晰度)涉及到对图像内容的理解所以是计算机视觉。MODEL到MODEL不涉及到对图像内容的理解，因而其属于计算机图形学。
 
 #### OpenCV与FFMpeg的关系
 简单来说 OpenCV 与 FFMpeg 之间是相互调用的关系。
-![[02-OpenCV与FFMpeg之间的关系.png]]
+![OpenCV与FFMpeg之间的关系](./assets/pic/02-OpenCV%E4%B8%8EFFMpeg%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB.png)       
 
 ## OpenCV的核心模块          
 -  HighGUI部分              

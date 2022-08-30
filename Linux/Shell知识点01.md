@@ -42,14 +42,14 @@ wc < test.txt
 Linux  wc命令  `wc < test.txt` 中 < 是追加输出的意思
 那到底是把什么追加给什么呢？？？
 这条指令与  `wc  test.txt` 的区别又是什么呢？？？
-![wc与输出重定向.png](../assets/Shell/wc%E4%B8%8E%E8%BE%93%E5%87%BA%E9%87%8D%E5%AE%9A%E5%90%91.png)         
-```
+![wc与输出重定向.png](./assets/Shell//wc%E4%B8%8E%E8%BE%93%E5%87%BA%E9%87%8D%E5%AE%9A%E5%90%91.png)         
+```shell
 wc < test.txt 先将test.txt通过文件流打开，之后重定向给wc命令用以统计
 wc test.txt 是使用wc命令直接统计 test.txt 中的内容
 两者的区别在于来源，即是否使用内存打开文件
 两者的区别，通过下图可以有更直观的感受
 ```
-![wc与输出重定向2.png](../assets/Shell/wc%E4%B8%8E%E8%BE%93%E5%87%BA%E9%87%8D%E5%AE%9A%E5%90%912.png)         
+![wc与输出重定向2.png](./assets/Shell/wc%E4%B8%8E%E8%BE%93%E5%87%BA%E9%87%8D%E5%AE%9A%E5%90%912.png)         
 
 
 $? 可以判断上一条命令是否成功执行。返回0，成功执行。返回非0，未成功执行

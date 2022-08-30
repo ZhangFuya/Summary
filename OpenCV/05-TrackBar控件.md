@@ -14,4 +14,11 @@ createTrackBar 参数剖析：
 getTrackBarPos 参数剖析：           
 -  trackbarname 滑块名             
 -  winname 滑块所在窗口名          
-返回值为当前TrackBar所在位置对应的值。          
+返回值为当前TrackBar所在位置对应的值。    
+
+
+## Record
+### ERROR
+"void (*)()" 类型的实参与 "cv::TrackbarCallback" 类型的形参不兼容             
+解决方案：         
+TrackbarCallback 回调函数必须为 void(int,void*)        

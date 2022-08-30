@@ -22,7 +22,7 @@ imread功能是加载图像文件成为一个Mat对象，
 - 保存PNG格式的时候可以保存透明通道的图片         
 - 可以指定压缩参数         
 
-[源代码--图像的显示与保存](../assets/Source/OpenCV/01-open-image.cpp)           
+[源代码--图像的显示与保存](./assets/Source/01-open-image.cpp)           
 
 ## 色彩空间
 图片离不开颜色的支撑。OpenCV中对于图片的管理使用色彩空间(一种颜色写法就是一个色彩空间)这一名词。                 
@@ -45,4 +45,4 @@ cvtColor的功能是把图像从一个色彩空间转换到另一个色彩空间
 
 注意：**使用 COLOR_GRAY2xxx 图片一定是一张三通道图片(否则会报错并中止)。**        
 
-[源代码--色彩空间的使用](../assets/Source/OpenCV/04-colorspace.cpp)         
+[源代码--色彩空间的使用](./assets/Source/04-colorspace.cpp)                     

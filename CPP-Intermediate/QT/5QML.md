@@ -1,1 +1,0 @@
-1. 如果从别的地方下载下来的QML代码，在 main.cpp 中的  QGuiApplication app(argc, argv); 如果报错，只需要引入头文件 <QCoreApplication> 并将其修改为 QApplication  app(argc, argv);即可解决

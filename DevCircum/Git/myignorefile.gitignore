@@ -1,0 +1,34 @@
+#add files that I don't hope upload
+cache
+Cache
+CACHE
+temp
+Temp
+TEMP
+test
+Test
+TEST
+build
+Build
+abc*
+
+## Git
+.git
+.gitignore
+
+# Visual Studio Code files
+.vscode
+
+# Visual Studio config files
+*.sln
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+x*64
+
+# Clion config files
+.idea
+cmake-build-debug
+
+# Obsidian config files
+.obsidian

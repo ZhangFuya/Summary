@@ -1,0 +1,17 @@
+我的一个makefile实例
+```makefile
+CC=gcc		#指定gcc
+ELF=a.out	#以此新建目标，依赖，依赖之依赖变量
+src=$(shell find -name '*.c')
+src2o=$(src:.c=.o)
+$(ELF):$(src2o)		#目标:依赖
+#这一句不能省	
+	gcc $^ -o $@	
+
+#缺省式写法,因为make会自动寻找.o及其依赖
+
+.PHONY:clean		#声明一个伪目标
+clean:
+	rm -rf $(src2o)
+```
+

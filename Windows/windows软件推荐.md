@@ -25,11 +25,10 @@ Everything 用于全局搜索文件/文件夹。并且 Everything 还有着高�
 值得一提的是 Everything 和 utools 搭配使用碰撞的奇妙火花，使得搜索竟变得如此炫酷。Alt + Space 开始你的搜索吧。
 Everything的下载地址：[https://www.voidtools.com](https://www.voidtools.com/zh-cn/)
 
-1. 看图软件 -- IrfanView
-尝试了许多看图软件之后，最后还是选择了IrfanView。         
-大胆尝试一下，绝对是极佳的一款看图软件。     
-汉化很简单，只需要在首页的 LANGUAGE 中找到 Chinese 然后下载 Installer 进行安装即可。          
-IrfanView下载地址：[https://www.irfanview.com](https://www.irfanview.com/)
+1. 看图软件 -- FastStone Image Viewer
+尝试了许多看图软件之后，最后还是选择了FastStone Image Viewer。         
+因为Quicker Look在处理单张图片的速览时已经很快速了。所以我不需要再安装一款图片浏览软件。我需要一款能够对图片进行中等层次编辑的软件。最终我选择了 FastStone Image Viewer。       
+FastStone Image Viewer下载地址：[https://www.faststone.org/FSViewerDetail.htm](https://www.faststone.org/FSViewerDetail.htm)
 
 1. 音视频播放器 -- Potplayer
 最强音视频软件之一。也是每次装软件必装的音视频播放器。
@@ -41,3 +40,6 @@ VSCode下载地址：[https://code.visualstudio.com](https://code.visualstudio.c
 
 1. 浏览器 -- Edge
 日益臃肿，不过可定制性很高。较之 Chrom，也有着极好的使用体验，推荐。
+
+
+**当你具备以上的软件，并能够使用一段时间，trust me 你今后丢不掉它们**

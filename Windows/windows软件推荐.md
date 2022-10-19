@@ -39,7 +39,7 @@ Potplayer下载地址：[http://www.potplayercn.com/](http://www.potplayercn.com
 VSCode下载地址：[https://code.visualstudio.com](https://code.visualstudio.com/Download)
 
 1. 浏览器 -- Edge
-日益臃肿，不过可定制性很高。较之 Chrom，也有着极好的使用体验，推荐。
+日益臃肿，不过可定制性很高。较之 Chrome，也有着极好的使用体验，推荐。
 
 
 **当你具备以上的软件，并能够使用一段时间，trust me 你今后丢不掉它们**

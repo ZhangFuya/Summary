@@ -1,0 +1,23 @@
+Qobject是Qt对象模型的核心。
+该模型的核心特征是一种非常强大的无缝对象通信机制，称为信号和槽。
+可以使用connect()将信号连接到插槽，并使用disconnect()破坏连接。
+为了避免永不结束的通知循环，您可以使用blockSignals()临时阻塞信号。
+受保护的函数connectNotify()和disconnectNotify()使跟踪连接成为可能。
+
+每个对象都有一个objectName()，
+它的类名可以通过相应的metaObject()找到(参见QMetaobject::className())。
+可以使用inherits()函数确定对象的类是否继承了Qobject继承层次结构中的另一个类。
+当一个对象被删除时，它会发出一个destroyed()信号。
+你可以捕捉这个信号来避免对Q0bjects的悬空引用。
+Qobjects可以通过event()接收事件，并过滤其他对象的事件。
+详细信息请参见installEventFilter()和eventFilter()。
+可以重新实现一个方便的处理程序childEvent()来捕获子事件。
+
+注意，Q_oBJEcT宏对于任何实现信号、槽或属性的对象都是强制的。您还需要在源文件上运行元对象编译器。
+我们强烈建议在Qobject的所有子类中使用这个宏，不管它们是否实际使用信号、槽和属性，
+因为不这样做可能会导致某些函数表现出奇怪的行为。
+
+Auto-ConnectionQt的元对象系统提供了一种自动连接Qobject子类及其子类之间的信号和槽的机制。
+只要用合适的对象名称定义对象，并且插槽遵循简单的命名约定，这个连接就可以在运行时由QMetaobject::connectSlotsByName()函数执行。
+uic生成调用此函数的代码，以便在用Qt Designer创建的窗体上的小部件之间执行自动连接。
+关于使用自动连接Qt设计器的更多信息，请参见Qt设计器手册的“在您的c++应用程序中使用设计器Ul文件”一节。

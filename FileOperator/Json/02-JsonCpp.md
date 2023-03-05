@@ -17,6 +17,11 @@
     - 找到项目JsonCpp_lib，右键生成(注意是Debug版本还是Release版本)。根据编译信息找到构建出来的.dll和.lib文件位置。
     - 建议：将生成的.dll和.lib文件以及JsonCpp中include下的json文件夹放到单独的文件夹中。
     - 配置VS环境。VC++和链接器选项。注意VC++中include指定到json所在的文件夹即可，无需指定到json文件夹。
+```c
+20230305补充    by::zfy
+生成库文件按照步骤一步一步进行，我使用VS2022，程序会报错。将 jsoncpp.dll 文件移动到 .exe 所在目录问题解决。
+基于该情况，我建议使用 方式一 以引入JsonCpp。
+```
 
 ## JsonCpp的使用
 json/json.h头文件中包含了json文件夹下的所有的头文件，使用JsonCpp时引入json.h即可。
@@ -62,3 +67,5 @@ size数组元素个数、[]、get带有默认值的得到元素、append、迭�
 //序列化,写配置文件的时候使用，将Value对象转为带有换行符的形式
 std::string toStyledString() const;
 ```
+
+## 一个Json读写的实例。

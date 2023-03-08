@@ -40,57 +40,9 @@ typedef struct _iobuf FILE;
 `FILE* fp; //文件指针变量`
 pf 是一个指向FILE类型数据的指针变量。可以使pf指向某个文件的文件信息区。通过该文件信息区中的信息能够访问该文件。也就是说，**通过文件指针变量能够找到与它关联的文件**。
 
-# 文件的操作
+
 文件在读写之前应该先打开文件，在使用结束之后应该关闭文件。
 **文件是一种资源，一个程序能打开的文件是有限的。建议不使用文件时进行文件的关闭。**
-C语言打开、关闭、操作 文件的方法列举：
-```c
-FILE* fopen(const char* filename, const cahr* mode);
-- fopen::文件打开失败或打开错误的时候，会返回 NULL
-- fopen::r打开没有则报错，a、w打开没有则创建。
-- fopen::w打开文件会将文件中所有的内容清空以写入
-
-int fclose(FILE* stream);
-- fclose::关闭文件时记得将文件指针置空
-```
-
-```c
-//文件的顺序读写    
-- 字符串输入函数    fgetc       所有输入流
-Write a character to a stream or to stdout
-int fputc(int c, FILE* stream);
-
-- 字符串输出函数    fputc       所有输出流
-Read a character from a stream or stdin
-注意：如果读取失败或者读到文件结尾 fgetc 会返回 EOF(-1，End OF File)
-int fgetc(FILE* stream);
-
-- 文本行输入函数    fgets       所有输入流
-char* fgets(char* string, int n, FILE* stream);
-fgets 从流中读取数据并放到string中，参数n表示一次最多读取多少个元素。
-注意三点： 1. 如果一行中元素个数小于 n，那么n无效
-          2. n表示最多读多少个元素，但是真正读取的元素个数是 n - 1,最后一个空间是\0
-          3. 一行未读完，fgets不会到下一行去读
-//文件内容为 abcdefg\nhijklmn
-fgets(arr, 4, pf);
-printf("%s\n", arr);
-fgets(arr, 4, pf);
-printf("%s\n", arr);
-打印输出：
-abc
-def
-n是最大读取位数，但实际读的字符数为 n-1， 一行未读完 fgets 不会到下一行去读。
-
-- 文本行输出函数    fputs       所有输出流
-Write a string to a stream.
-int fputs(const char* string, FILE* stream);
-
-- 格式化输入函数    fscanf      所有输入流
-- 格式化输出函数    fprintf     所有输出流 
-- 二进制输入        fread         文件  
-- 二进制输出        fwrite        文件
-```
-
 
 # 流的辨析
 流是一个高度抽象的概念。用于程序和硬件之间数据的读写。

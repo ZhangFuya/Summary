@@ -67,11 +67,64 @@ fread 和 fwrite 是一组函数，用于二进制的形式进行文件的读写
 返回值 size_t 表示实际 读/写 的 count 数。未读到或读到文件末尾则返回 0。
 ```
 
+```c
+文件读取结束的判定
+fgetc   EOF
+fgets   NULL
+fread   判断返回值是否小于实际要读的个数
+注意：在文件读取过程中，不能用 feof 函数的返回值直接判断文件是否结束
+因为 feof 用于：当文件读取结束时，判断是读取失败结束还是读到文件尾结束。
+int feof(FILE *stream)；
+读到文件尾，返回非零值。否则返回0.
+```
+
+
+```c
+一组函数对比
+scanf       针对 stdin 的格式化输入语句
+fscanf      针对 所有输入流 的格式化输入语句
+sscanf      从字符串获取格式化数据
+
+printf      针对 stdout 的格式化输出语句
+fprintf     针对 所有输出流 的格式化输出语句
+sprintf     将格式化数据转为字符串
+
+- sscanf 从字符串中获取有格式的数据
+Read formatted data from a string
+int sscanf(const char* buffer, const char* format[, argument]...);
+- sprintf 将有格式的数据转换成一个字符串
+Write formatted data to a string
+int sprintf(char* buffer, const char* format[, argument]...);
+```
+
+```c
+//文件的随机读写 fseek ftell
+- fseek 根据文件指针的位置和偏移量来定位文件指针
+int fseek(FILE* stream, long offset, int origin);
+offset:偏移量，值可以为正也可以为负值
+origin:起始位置。取值有三：SEEK_CUR(当前指针位置)、SEEK_END(文件末尾)、SEEK_SET(文件开始)
+
+- ftell 返回文件指针相对于起始位置的偏移量
+long int ftell(FILE* stream);
+
+- rewind 让文件指针的位置回到文件的起始位置
+void rewind(FILE* stream);
+```
+
 # 关于二进制读写和文本读写的区别
-该问题，在知乎上的一个回答非常合适(回答者：知乎yuantj，主页：https://www.zhihu.com/people/yuantj)。
-可以说，这是个历史遗留问题。之所以 C 语言要区分“文本文件”和“二进制文件”这两个概念，是因为每个操作系统存储换行符的方式不一样。类 UNIX 系统（包括 Linux、BSD、现代 macOS 等）用 LF "\n" 表示换行，DOS 和 Windows 系统使用 CRLF "\r\n" 表示换行，Classic Mac OS 使用 CR "\r" 表示换行。这个要是错了，在一些程序中，可能会解析成错误的结果
-![](../image/FileRWbyC/FileRWbyC01.jpg)
-但是我们在编写 C 语言程序的时候，通常只用 "\n" 表示换行。如果在非类 UNIX 系统上直接这么储存，比如在 DOS 或 Windows 系统，可能就不会正确地显示换行。
-![](../image/FileRWbyC/FileRWbyC02.jpg)
-而我们的 ANSI/ISO C 语言名义上可是源码级跨平台的呀，所以为了读写文本文件时在不同平台上正确地处理换行符，读写非文本文件（如压缩文件、多媒体文件等）时能够获取相同的字节流，于是就有了 fopen 的 "b" 标签。在类 UNIX 系统上，由于源码和系统处理上都用 "\n" 表示换行，所以忽略该标签，而在 Windows 下，自动将所有 "\n" 转化为 "\r\n" 储存，这样就能做到不同平台行为一致了
-![](../image/FileRWbyC/FileRWbyC03.jpg)
+计算机底层存储的都是二进制码，这一点毫无争议。
+不同点在于比如一个数字 1，他如果按照 ASCII码 的形式存储那么该文件就是文本文件，如果将这个数字按其字节码来存那么该文件就是 二进制文件。
+
+根据数据的组织形式，数据文件被称为 文本文件 或 二进制文件。
+数据在内存中以 二进制的形式存储，如果不加转化的输出带外存，就是二进制文件。
+如果要求在外存上以 ASCII码 的形式存储，则需要在存储前转换。以 ASCII码 字符的形式存储的文件就是 文本文件。
+
+# 文件缓冲区
+ANSIC 标准采用“缓冲文件系统”处理数据文件。所谓缓冲文件系统是指**系统自动地在内存中为程序中每一个正在使用的文件开辟一块“文件缓冲区”**。从内存向磁盘输出数据会先发送到内存中的缓冲区，装满缓冲区后才一起送到磁盘上。
+如果从磁盘向计算机读入数据，则从磁盘文件中读取数据输入到内存缓冲区(充满缓冲区)，然后再从缓冲区逐个地将数据送到程序数据区(程序变量等)。
+缓冲区的大小由编译器决定。
+**使用fflush可以将缓冲区的数据立即进行读写**，以刷新缓冲区。
+**fclose隐藏的就有刷新缓冲区操作**
+
+## 缓冲系统的作用
+**避免操作系统频繁读写文件的开销**

@@ -21,6 +21,7 @@ Windows系统中文件名包含三部分：文件路径 + 文件名主干 + 文�
 - 打开文件时，系统就会根据文件的情况自动创建一个 FILE结构的变量，并填充数据。开发人员无需为文件信息区进行任何操作。
 - 文件信息区是一个结构体(FILE)类型的。
 - 不同的编译器 FILE 类型的细节可能不完全相同，但无关紧要。作为开发人员不可深究三方库的实现。
+- **因为 FILE 结构体较大，传回这个结构体的首地址明显要比复制整个结构体并传回的效率高，因此FILE常以指针形式存在**
 ```C
 //VS2013中的FILE类型
 struct _iobuf {
@@ -34,6 +35,20 @@ struct _iobuf {
     char    *_tmpfname;
 };
 typedef struct _iobuf FILE;
+
+//另一个FILE结构体
+typedef struct
+{
+    short level;            /＊缓冲区‘满’或‘空’的程度＊/
+    unsigned flags;         /＊文件状态标志＊/
+    char fd;                /＊文件描述符＊/
+    unsigned char hold;     /＊如无缓冲区不读字符＊/
+    short bsize;            /＊缓冲区的大小＊/
+    unsigned char ＊buffer; /＊数据缓冲区的位置＊/
+    unsigned char ＊curp;   /＊指针当前的指向＊/
+    unsigned istemp;        /＊临时文件指示器＊/
+    short token;            /＊用于有效性检查＊/
+}FILE;
 ```
 **打开文件时，其实就是创建一个文件信息区，并与文件关联起来。**
 **一般通过一个 FILE指针 来维护FILE结构的变量。**
